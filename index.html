@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Clicker Web</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="game-container" id="gameContainer">
+    <div class="top-panel">
+        <div id="combo-label"></div>
+        <div id="rank-label">⭐ Новичок</div>
+    </div>
+
+    <div class="score-box">
+        <p id="score-label">0</p>
+        <p id="passive-label">Пассивный доход: +0/сек</p>
+    </div>
+    <div class="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <button id="click-btn">ТАПАЙ!</button>
+
+    <div class="shop-layout">
+        <button class="shop-btn" id="upgrade-btn">Клик +1<br>Цена: 10</button>
+        <button class="shop-btn" id="passive-btn">Автоклик +0.5<br>Цена: 20</button>
+        <button class="shop-btn" id="rebirth-btn">Ребёрс (x1.5)<br>Цена: 50000</button>
+    </div>
+
+    <button id="reset-btn">Сбросить всё</button>
+</div>
+
+<script src="js/game.js"></script>
+</body>
+</html>
