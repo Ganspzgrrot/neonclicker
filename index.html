@@ -3,36 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neon Clicker Web</title>
+    <title>Neon Clicker Web Edition</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="game-container">
+        <div class="top-panel">
+            <div id="combo-display" class="combo-text"></div>
+            <div id="rank-display" class="rank-badge">🌱 Новичок</div>
+            <div class="lang-selector">
+                <i class="fa-solid fa-globe"></i>
+                <select id="lang-select">
+                    <option value="Русский">RU</option>
+                    <option value="Беларуская">BY</option>
+                    <option value="Deutsch">DE</option>
+                </select>
+            </div>
+        </div>
 
-<div class="game-container" id="gameContainer">
-    <div class="top-panel">
-        <div id="combo-label"></div>
-        <div id="rank-label">⭐ Новичок</div>
+        <div class="score-container">
+            <h1 id="score-text">0</h1>
+            <p id="passive-text">Пассивный доход: +0/с</p>
+        </div>
+
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-fill"></div>
+        </div>
+
+        <button id="click-btn" class="main-click-btn">ТАПАЙ!</button>
+
+        <div class="shop-container">
+            <button id="upg-btn" class="shop-btn upgrade">Сила клика<br><span>10 💰</span></button>
+            <button id="pas-btn" class="shop-btn passive">Авто-клик<br><span>20 💰</span></button>
+            <button id="rebirth-btn" class="shop-btn rebirth">Перерождение<br><span>x1.5 (1000)</span></button>
+        </div>
+
+        <div class="bottom-panel">
+            <button id="reset-btn" class="danger-btn">Сброс</button>
+        </div>
     </div>
 
-    <div class="score-box">
-        <p id="score-label">0</p>
-        <p id="passive-label">Пассивный доход: +0/сек</p>
-    </div>
-    <div class="progress-container">
-        <div id="progress-bar"></div>
-    </div>
-
-    <button id="click-btn">ТАПАЙ!</button>
-
-    <div class="shop-layout">
-        <button class="shop-btn" id="upgrade-btn">Клик +1<br>Цена: 10</button>
-        <button class="shop-btn" id="passive-btn">Автоклик +0.5<br>Цена: 20</button>
-        <button class="shop-btn" id="rebirth-btn">Ребёрс (x1.5)<br>Цена: 50000</button>
+    <div id="reset-modal" class="modal">
+        <div class="modal-content">
+            <p id="modal-text">Вы уверены, что хотите обнулить весь прогресс?</p>
+            <div class="modal-buttons">
+                <button id="confirm-reset" class="modal-btn yes">Да</button>
+                <button id="cancel-reset" class="modal-btn no">Нет</button>
+            </div>
+        </div>
     </div>
 
-    <button id="reset-btn">Сбросить всё</button>
-</div>
-
-<script src="js/game.js"></script>
+    <script src="js/game.js"></script>
 </body>
 </html>
