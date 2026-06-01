@@ -1,164 +1,181 @@
-/* web/css/style.css */
-
-/* Базовые настройки для всего экрана */
 body {
-    background-color: #08080c;
+    margin: 0;
+    padding: 0;
+    background-color: #050508;
     color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Roboto, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    user-select: none;
+    min-height: 100vh;
     overflow: hidden;
 }
 
-/* Контейнер, имитирующий экран смартфона */
 .game-container {
     width: 100%;
-    max-width: 360px;
-    height: 100vh;
-    max-height: 640px;
-    box-sizing: border-box;
+    max-width: 400px;
+    height: 90vh;
+    background: #0d0d13;
+    border: 2px solid #1f1f2e;
+    border-radius: 20px;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(31, 31, 46, 0.5);
+    box-sizing: border-box;
 }
 
-/* Верхняя панель (Комбо и Ранг) */
 .top-panel {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 13px;
-    font-weight: bold;
-    height: 30px;
-}
-#combo-label { 
-    color: #ff4d4d; 
-}
-#rank-label { 
-    color: #b3b3b3; 
-    transition: color 0.3s; 
+    height: 40px;
 }
 
-/* Блок счета */
-.score-box {
+.combo-text {
+    font-size: 12px;
+    font-weight: bold;
+    color: #ff3333;
+    text-shadow: 0 0 8px #ff3333;
+}
+
+.rank-badge {
+    font-size: 13px;
+    font-weight: bold;
+    background: rgba(255,255,255,0.05);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.lang-selector {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #1a1a26;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.lang-selector select {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+
+.score-container {
     text-align: center;
-    margin-top: 10px;
-}
-#score-label {
-    font-size: 48px;
-    font-weight: bold;
-    margin: 0;
-    transition: transform 0.05s;
-}
-#passive-label {
-    font-size: 13px;
-    color: #999;
-    margin: 5px 0 0 0;
+    margin: 20px 0;
 }
 
-/* Шкала прогресса ранга */
+#score-text {
+    font-size: 50px;
+    margin: 0;
+    font-weight: 800;
+    text-shadow: 0 0 15px rgba(255,255,255,0.6);
+}
+
+#passive-text {
+    margin: 5px 0 0;
+    font-size: 13px;
+    color: #8a8a9e;
+}
+
 .progress-container {
     width: 100%;
-    background-color: #222;
     height: 6px;
+    background: #1a1a26;
     border-radius: 3px;
-    margin: 10px 0;
     overflow: hidden;
-}
-#progress-bar {
-    width: 0%;
-    height: 100%;
-    background-color: #00e5ff;
-    transition: width 0.1s linear;
+    margin-bottom: 25px;
 }
 
-/* Главная кнопка-тапалка */
-#click-btn {
-    width: 100%;
-    height: 40%;
-    background-color: #4a148c;
-    border: none;
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    box-shadow: 0 0 10px #00ffff;
+    transition: width 0.2s ease;
+}
+
+.main-click-btn {
+    flex-grow: 1;
+    background: linear-gradient(135deg, #1d004d, #3c0066);
+    border: 3px solid #7700aa;
     border-radius: 15px;
-    color: white;
+    color: #fff;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    outline: none;
-    box-shadow: 0 0 15px rgba(74, 20, 140, 0.4);
-    transition: transform 0.05s, background-color 0.2s;
-    position: relative;
-}
-#click-btn:active { 
-    transform: scale(0.97); 
+    box-shadow: 0 0 15px rgba(119, 0, 170, 0.4);
+    transition: all 0.05s ease;
+    text-shadow: 0 0 10px #ff00ff;
 }
 
-/* Магазин апгрейдов */
-.shop-layout {
+.main-click-btn:hover {
+    box-shadow: 0 0 25px rgba(119, 0, 170, 0.7);
+    border-color: #aa00ff;
+}
+
+.shop-container {
     display: flex;
     gap: 8px;
-    height: 15%;
+    margin-top: 20px;
 }
+
 .shop-btn {
     flex: 1;
+    height: 70px;
     border: none;
     border-radius: 10px;
-    color: white;
+    color: #fff;
     font-size: 11px;
     font-weight: bold;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: background-color 0.12s, transform 0.1s;
-}
-.shop-btn:active { 
-    transform: scale(0.95); 
-}
-#upgrade-btn { background-color: #0d8243; }
-#passive-btn { background-color: #1a6680; }
-#rebirth-btn { background-color: #991a80; }
-
-/* Кнопка полного сброса */
-#reset-btn {
-    width: 100%;
-    height: 5%;
-    background-color: rgba(102, 26, 26, 0.4);
-    border: none;
-    border-radius: 5px;
-    color: #ff4d4d;
-    font-size: 11px;
-    cursor: pointer;
+    transition: background 0.2s;
 }
 
-/* Анимация летящих вверх плюсовых циферок */
+.shop-btn span { font-size: 12px; opacity: 0.9; display: inline-block; margin-top: 4px;}
+.upgrade { background: #03361b; border: 1px solid #00ff66; box-shadow: 0 0 8px rgba(0,255,102,0.2); }
+.passive { background: #0a2d3d; border: 1px solid #00bfff; box-shadow: 0 0 8px rgba(0,191,255,0.2); }
+.rebirth { background: #3b052e; border: 1px solid #ff00b3; box-shadow: 0 0 8px rgba(255,0,179,0.2); }
+
+.bottom-panel { margin-top: 15px; display: flex; }
+.danger-btn { width: 100%; background: #260d0d; border: 1px solid #ff3333; color: #ff9999; padding: 8px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: bold;}
+
+/* Анимация летящего текста */
 .floating-text {
     position: absolute;
-    font-weight: bold;
     pointer-events: none;
-    animation: floatUp 0.35s ease-out forwards;
-}
-@keyframes floatUp {
-    0% { transform: translateY(0) scale(1); opacity: 1; }
-    100% { transform: translateY(-100px) scale(1.3); opacity: 0; }
+    font-weight: 800;
+    font-size: 22px;
+    animation: floatUp 0.8s forwards ease-out;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 8px currentColor;
 }
 
-/* Анимация падающих вниз минусовых циферок при покупке */
-.negative-text {
-    position: absolute;
-    font-weight: bold;
-    pointer-events: none;
-    color: #ff3333;
-    animation: floatDown 0.4s ease-out forwards;
+.crit-text {
+    font-size: 32px !important;
+    animation: floatUpCrit 0.8s forwards cubic-bezier(0.18, 0.89, 0.32, 1.28) !important;
 }
-@keyframes floatDown {
-    0% { transform: translateY(0) scale(1); opacity: 1; }
-    100% { transform: translateY(60px) scale(0.8); opacity: 0; }
+
+@keyframes floatUp {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -120px) scale(0.8); }
 }
+@keyframes floatUpCrit {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1.4); }
+    30% { transform: translate(-50%, -30px) scale(1.6); }
+    100% { opacity: 0; transform: translate(-50%, -160px) scale(0.9); }
+}
+
+/* Модалка сброса */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 100; }
+.modal-content { background: #11111a; border: 2px solid #ff3333; padding: 25px; border-radius: 15px; text-align: center; max-width: 300px; box-shadow: 0 0 35px rgba(255,51,51,0.3); }
+.modal-buttons { display: flex; gap: 10px; margin-top: 20px; }
+.modal-btn { flex: 1; padding: 10px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.yes { background: #cc2424; color: white; }
+.no { background: #333; color: white; }
